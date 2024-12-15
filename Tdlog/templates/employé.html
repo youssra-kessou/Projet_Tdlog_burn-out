@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>BurnoutGuard</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" na me="description">
+
+    <!-- Favicon -->
+    <link href="static/img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="static/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="static/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-fluid position-relative bg-white d-flex p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+
+        <!-- Sidebar Start -->
+        <div class="sidebar pe-4 pb-3">
+            <nav class="navbar bg-light navbar-light">
+                <a href="index1.html" class="navbar-brand mx-4 mb-3">
+                    <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>BurnoutGuard</h3>
+                </a>
+                <div class="d-flex align-items-center ms-4 mb-4">
+                    <div class="position-relative">
+                        <img class="rounded-circle" src="static/img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                        <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
+                    </div>
+                    <div class="ms-3">
+                        <h6 class="mb-0"></h6>
+                        <span>Employé</span>
+                    </div>
+                </div>
+                <div class="navbar-nav w-100">
+                    <a href="{{ url_for('employé') }}" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+
+                    <a href="{{ url_for('signin') }}" class="nav-item nav-link"><i class="fa fa-home me-2"></i>Déconnexion</a>
+
+                    
+                </div>
+            </nav>
+        </div>
+        <!-- Sidebar End -->
+
+
+        <!-- Content Start -->
+        <div class="content">
+            <!-- Navbar Start -->
+            <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
+                <a href="{{ url_for('employé') }}" class="navbar-brand d-flex d-lg-none me-4">
+                    <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
+                </a>
+                <a href="#" class="sidebar-toggler flex-shrink-0">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <form class="d-none d-md-flex ms-4">
+                    <input class="form-control border-0" type="search" placeholder="Search">
+                </form>
+                <div class="navbar-nav align-items-center ms-auto">
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <i class="fa fa-envelope me-lg-2"></i>
+                            <span class="d-none d-lg-inline-flex">Message</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                            <a href="#" class="dropdown-item">
+                                <div class="d-flex align-items-center">
+                                    <img class="rounded-circle" src="static/img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <div class="ms-2">
+                                        <h6 class="fw-normal mb-0">Ilias send you a message</h6>
+                                        <small>15 minutes ago</small>
+                                    </div>
+                                </div>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item">
+                                <div class="d-flex align-items-center">
+                                    <img class="rounded-circle" src="static/img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <div class="ms-2">
+                                        <h6 class="fw-normal mb-0">Basma send you a message</h6>
+                                        <small>15 minutes ago</small>
+                                    </div>
+                                </div>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item">
+                                <div class="d-flex align-items-center">
+                                    <img class="rounded-circle" src="static/img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <div class="ms-2">
+                                        <h6 class="fw-normal mb-0">Yahya send you a message</h6>
+                                        <small>15 minutes ago</small>
+                                    </div>
+                                </div>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item text-center">See all message</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <i class="fa fa-bell me-lg-2"></i>
+                            <span class="d-none d-lg-inline-flex">Notificatin</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                            <a href="#" class="dropdown-item">
+                                <h6 class="fw-normal mb-0">Profile updated</h6>
+                                <small>15 minutes ago</small>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item">
+                                <h6 class="fw-normal mb-0">New user added</h6>
+                                <small>15 minutes ago</small>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item">
+                                <h6 class="fw-normal mb-0">Password changed</h6>
+                                <small>15 minutes ago</small>
+                            </a>
+                            <hr class="dropdown-divider">
+                            <a href="#" class="dropdown-item text-center">See all notifications</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                            <img class="rounded-circle me-lg-2" src="static/img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                            <span class="d-none d-lg-inline-flex">Employé</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
+                            <a href="#" class="dropdown-item">My Profile</a>
+                            
+                            <a href="{{ url_for('signin') }}" class="dropdown-item">Log Out</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- Navbar End -->
+
+    
+     <!-- Tableau de l'employé -->
+     <form method="POST" action="/employé">
+        <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    <th>Nom</th>
+                    <td>
+                        <input type="text" name="last-name" class="form-control" placeholder="Nom" required>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Prénom</th>
+                    <td>
+                        <input type="text" name="first-name" class="form-control" placeholder="Prénom" required>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Designation</th>
+                    <td>
+                        <input type="number" name="designation" class="form-control" min="0" max="5" step="1" placeholder="Score (0-5)" required>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Resource Allocation</th>
+                    <td>
+                        <input type="number" name="resource-allocation" class="form-control" min="1" max="10" step="1" placeholder="Score (1-10)" required>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Mental Fatigue Score</th>
+                    <td>
+                        <input type="number" id="mental-fatigue" name="mental-fatigue" class="form-control" min="0" max="10" step="0.1" placeholder="Score (0-10)" required>
+
+                        <button type="button" id="start-quiz" class="btn btn-secondary mt-2">Passer le Quiz</button>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Gender</th>
+                    <td>
+                        <select name="gender" class="form-control" required>
+                            <option value="Male">Homme</option>
+                            <option value="Female">Femme</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>WFH Setup (possibilité de travail à distance?)</th>
+                    <td>
+                        <select name="wfh-setup" class="form-control" required>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="submit" class="btn btn-primary mt-3">Enregistrer</button>
+    </form>
+    
+    <!-- Messages flash -->
+    <!-- Messages flash -->
+    {% with messages = get_flashed_messages(with_categories=True) %}
+    {% if messages %}
+    <ul>
+        {% for category, message in messages %}
+        <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+
+
+     <!-- Modals pour les quizz -->
+    <div class="modal" id="quiz-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Quiz</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="quiz-form">
+                        <div id="quiz-questions">
+                            <!-- Les questions dynamiques apparaîtront ici -->
+                        </div>
+                        <button type="button" id="submit-quiz" class="btn btn-primary mt-3">Calculer mon score</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+                        <!-- Modal for Quiz -->
+         
+                        <div class="col-sm-12 col-xl-12">
+                            <div class="bg-white shadow-sm rounded p-4">
+                                <h5 class="mb-4 text-center text-primary"><i class="fas fa-info-circle"></i> Explications des Paramètres</h5>
+                                
+                                <!-- Designation Section -->
+                                <div class="parameter-section mb-4">
+                                    <h6 class="text-secondary"><i class="fas fa-briefcase"></i> Designation</h6>
+                                    <p class="text-muted">Votre niveau dans l'organisation, noté sur une échelle de <strong>0</strong> à <strong>5</strong> :</p>
+                                    <ul class="list-group">
+                                        <li class="list-group-item"><strong>0 :</strong> Employé junior ou débutant</li>
+                                        <li class="list-group-item"><strong>1 :</strong> Employé avec un peu d'expérience (3+ ans)</li>
+                                        <li class="list-group-item"><strong>2 :</strong> Poste intermédiaire (5+ ans)</li>
+                                        <li class="list-group-item"><strong>3 :</strong> Manager avec des responsabilités importantes (8+ ans)</li>
+                                        <li class="list-group-item"><strong>4 :</strong> Poste senior</li>
+                                        <li class="list-group-item"><strong>5 :</strong> Direction générale ou équivalent</li>
+                                    </ul>
+                                </div>
+                                <hr>
+                        
+                                <!-- Resource Allocation Section -->
+                                <div class="parameter-section mb-4">
+                                    <h6 class="text-secondary"><i class="fas fa-clock"></i> Resource Allocation</h6>
+                                    <p class="text-muted">Heures de travail moyennes par mois, notées sur une échelle de <strong>1</strong> à <strong>10</strong> :</p>
+                                    <ul class="list-group">
+                                        <li class="list-group-item"><strong>1 :</strong> Environ 160 heures/mois (standard)</li>
+                                        <li class="list-group-item"><strong>2 :</strong> Jusqu'à 180 heures/mois</li>
+                                        <li class="list-group-item"><strong>3 :</strong> Entre 190 et 200 heures/mois</li>
+                                        <li class="list-group-item"><strong>4 :</strong> Entre 210 et 220 heures/mois</li>
+                                        <li class="list-group-item"><strong>5 :</strong> Entre 230 et 240 heures/mois</li>
+                                        <li class="list-group-item"><strong>6 :</strong> Entre 241 et 269 heures/mois</li>
+                                        <li class="list-group-item"><strong>7 :</strong> Entre 270 et 279 heures/mois</li>
+                                        <li class="list-group-item"><strong>8 :</strong> Entre 280 et 289 heures/mois</li>
+                                        <li class="list-group-item"><strong>9 :</strong> Entre 290 et 300 heures/mois</li>
+                                        <li class="list-group-item"><strong>10 :</strong> Plus de 300 heures/mois (charge de travail élevée)</li>
+                                    </ul>
+                                </div>
+                                <hr>
+                        
+                                <!-- Mental Fatigue Score Section -->
+                                <div class="parameter-section">
+                                    <h6 class="text-secondary"><i class="fas fa-brain"></i> Mental Fatigue Score</h6>
+                                    <p class="text-muted">Calculé automatiquement via un quiz sur votre état mental, noté de <strong>0.0</strong> (aucune fatigue) à <strong>10.0</strong> (fatigue extrême).</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+            <!-- Footer Start -->
+            <div class="container-fluid pt-4 px-4">
+                <div class="bg-light rounded-top p-4">
+                    <div class="row">
+                        <div class="col-12 col-sm-6 text-center text-sm-start">
+                            &copy; <a href="#">BurnoutGuard</a>, All Right Reserved. 
+                        </div>
+                        <div class="col-12 col-sm-6 text-center text-sm-end">
+                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                            Designed By <a href="https://htmlcodex.com">Ilias maaroufi</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer End -->
+        </div>
+        <!-- Content End -->
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="static/lib/chart/chart.min.js"></script>
+    <script src="static/lib/easing/easing.min.js"></script>
+    <script src="static/lib/waypoints/waypoints.min.js"></script>
+    <script src="static/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="static/lib/tempusdominus/js/moment.min.js"></script>
+    <script src="static/lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="static/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="static/js/main.js"></script>
+    <script>
+        // Ajouter des fonctionnalités pour sauvegarder les données
+        const saveButton = document.getElementById("save-button");
+    
+        saveButton.addEventListener("click", () => {
+            const employeeData = {
+                lastName: document.getElementById("last-name").value,
+                firstName: document.getElementById("first-name").value,
+                designationScore: document.getElementById("designation-score").value,
+                resourceAllocation: document.getElementById("resource-allocation").value,
+                mentalFatigueScore: document.getElementById("mental-fatigue").value,
+                gender: document.getElementById("gender").value,
+                wfhSetup: document.getElementById("wfh-setup").value,
+            };
+    
+            // Sauvegarde dans le localStorage
+            localStorage.setItem("employeeData", JSON.stringify(employeeData));
+    
+            alert("Données enregistrées avec succès !");
+        });
+    
+        // Charger les données sauvegardées
+        window.onload = () => {
+            const savedData = localStorage.getItem("employeeData");
+            if (savedData) {
+                const employeeData = JSON.parse(savedData);
+                document.getElementById("last-name").value = employeeData.lastName;
+                document.getElementById("first-name").value = employeeData.firstName;
+                document.getElementById("designation-score").value = employeeData.designationScore;
+                document.getElementById("resource-allocation").value = employeeData.resourceAllocation;
+                document.getElementById("mental-fatigue").value = employeeData.mentalFatigueScore;
+                document.getElementById("gender").value = employeeData.gender;
+                document.getElementById("wfh-setup").value = employeeData.wfhSetup;
+            }
+        };
+    </script>
+    <script>
+        // Liste des questions du quiz
+        const questions = [
+            "Vous sentez-vous souvent dépassé par votre travail ?",
+            "Avez-vous du mal à vous concentrer au travail ?",
+            "Votre charge de travail est-elle gérable ?",
+            "Vous sentez-vous souvent fatigué mentalement après une journée de travail ?",
+            "Trouvez-vous du temps pour vous détendre en dehors du travail ?"
+        ];
+    
+        const scores = {
+            0: "Faible",
+            1: "Normal",
+            2: "Élevé"
+        };
+    
+        const quizModal = document.getElementById("quiz-modal");
+        const quizQuestionsContainer = document.getElementById("quiz-questions");
+        const mentalFatigueInput = document.getElementById("mental-fatigue");
+    
+        // Ouvrir le quiz en cliquant sur le bouton
+        document.getElementById("start-quiz").addEventListener("click", () => {
+            quizQuestionsContainer.innerHTML = ""; // Nettoyer les questions avant d'afficher
+            questions.forEach((question, index) => {
+                quizQuestionsContainer.innerHTML += `
+                    <div class="form-group">
+                        <label>${index + 1}. ${question}</label>
+                        <select class="form-control" data-question-index="${index}">
+                            <option value="0">Faible (0)</option>
+                            <option value="1">Normal (1)</option>
+                            <option value="2">Élevé (2)</option>
+                        </select>
+                    </div>`;
+            });
+            quizModal.style.display = "block"; // Afficher le modal
+        });
+    
+        // Fermer le quiz
+        document.querySelector(".close").addEventListener("click", () => {
+            quizModal.style.display = "none";
+        });
+    
+        // Calculer le score du quiz
+        document.getElementById("submit-quiz").addEventListener("click", () => {
+            const answers = document.querySelectorAll("#quiz-questions select");
+            let totalScore = 0;
+            answers.forEach(answer => {
+                totalScore += parseInt(answer.value);
+            });
+    
+            // Calculer un score sur 10
+            const mentalFatigueScore = (totalScore / (questions.length * 2)) * 10;
+            mentalFatigueInput.value = mentalFatigueScore.toFixed(1);
+    
+            // Fermer le modal
+            quizModal.style.display = "none";
+        });
+    </script>
+    <script>
+    document.getElementById("submit-quiz").addEventListener("click", () => {
+        const answers = document.querySelectorAll("#quiz-questions select");
+        let totalScore = 0;
+        answers.forEach(answer => {
+            totalScore += parseInt(answer.value);
+        });
+    
+        // Calculer un score sur 10
+        const mentalFatigueScore = (totalScore / (questions.length * 2)) * 10;
+        const mentalFatigueInput = document.getElementById("mental-fatigue");
+        mentalFatigueInput.value = mentalFatigueScore.toFixed(1);
+    
+        // Fermer le modal
+        quizModal.style.display = "none";
+    });
+    </script>
+    <script>
+        // Show flash messages
+    document.addEventListener('DOMContentLoaded', () => {
+        const flashContainer = document.getElementById('flash-container');
+        if (flashContainer) {
+            // Show the flash container
+            flashContainer.classList.remove('flash-hidden');
+            
+            // Automatically hide the flash message after 5 seconds
+            setTimeout(() => {
+                closeFlash();
+            }, 5000);
+        }
+    });
+
+    // Close flash message function
+    function closeFlash() {
+        const flashContainer = document.getElementById('flash-container');
+        if (flashContainer) {
+            flashContainer.classList.add('flash-hidden');
+        }
+    }
+    </script>
+        
+</body>
+
+</html>
