@@ -29,8 +29,38 @@
 
     <!-- Template Stylesheet -->
     <link href="static/css/style.css" rel="stylesheet">
+    
+    <style>
+        /* Forcer l'arrière-plan */
+        body {
+            background-image: url('static/img/ECC-Casablanca-2 (1).jpg'); /* Chemin vers votre image */
+            background-size: cover; /* Ajuste l'image pour qu'elle couvre tout l'écran */
+            background-repeat: no-repeat; /* Empêche la répétition de l'image */
+            background-position: center; /* Centrer l'image */
+            height: 120vh; /* S'assure que l'arrière-plan couvre toute la hauteur */
+            margin: 0; /* Supprime les marges par défaut */
+        }
 
-
+        /* Assurez-vous que les éléments internes ne perturbent pas le design */
+        .container-fluid {
+            background: transparent !important; /* Rendre le conteneur transparent */
+        }
+    
+        /* Ajuster le formulaire pour qu'il reste lisible */
+        .bg-light {
+            background: rgba(255, 255, 255, 0.85) !important; /* Fond semi-transparent */
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Ajoute une ombre légère */
+        }
+        .logo-icon {
+            width: 70px; /* Ajustez selon la taille désirée */
+            height: 70px; /* Ajustez selon la taille désirée */
+            vertical-align: middle;
+            margin-left: 8%;
+            margin-right: 30%; /* Aligne verticalement l'image avec le texte */
+        }
+    </style>
 </head>
 
 <body>
@@ -42,9 +72,12 @@
                     <div class="bg-light rounded p-4 p-sm-5 my-4 mx-3">
                         <div class="d-flex align-items-center justify-content-between mb-3">
                             <a href="{{ url_for('signin') }}" class="">
-                                <h3 class="text-primary"></i>BurnoutGuard</h3>
+                                
+                                    <img src="static/img/tdloglogo.png" alt="BurnoutGuard" class="logo-icon me-2">
+                                   
+                                
                             </a>
-                            <h3>Sign In</h3>
+                            <h3>Se connecter</h3>
                         </div>
 
                         <!-- Choix du rôle -->

@@ -370,3 +370,10 @@ em {
 .close-flash:hover {
     color: #000;
 }
+.logo-icon {
+    width: 50px; /* Ajustez selon la taille désirée */
+    height: 50px; /* Ajustez selon la taille désirée */
+    vertical-align: middle;
+    margin-left: -8%;
+    margin-right: -30%; /* Aligne verticalement l'image avec le texte */
+}

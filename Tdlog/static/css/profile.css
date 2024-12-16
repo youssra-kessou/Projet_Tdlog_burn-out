@@ -1,0 +1,180 @@
+.div-data {
+    background: white;
+    height: 600px;
+    border-radius:30px;
+    margin-top: 55px;
+    box-shadow:0px 10px 15px 10px #56595a;
+}
+
+
+.data {
+    width: 100%;
+    padding: 10px;
+}
+
+.input-data {
+    width: 100%;
+    border-radius: 10px;
+    background: lightgrey;
+}
+.img{
+	height:20%;
+	width:20%;
+	border-radius:50%;
+	padding:8px
+}
+
+nav {
+    height: 4.5rem;
+    width: 100vw;
+    background-color: #036383;
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    z-index: 10;
+    top: 0;
+}
+
+.nav-links li a:hover {
+    color: #3498db;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    width: calc(100% - 5rem);
+    padding: 15px 0.7vw 0;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    margin: 0 0.7vw;
+    color: #f2f5f7;
+}
+.home-button,
+.TP-button,
+.Deconn-button {
+    font-family: Arial, sans-serif;
+    text-decoration: none;
+    color: #feffff;
+    font-size: 18px;
+    margin-top: 6px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: color 0.3s;
+    margin-left: 60px;
+    border: none;
+    background-color: transparent;
+}
+
+
+.home-button{
+    margin-left: 80px;
+}
+.home-button:hover {
+    color:#3ee6e6; /* Couleur différente au survol */
+}
+.TP-button:hover {
+    color: #3ee6e6; /* Couleur différente au survol */
+}
+.Deconn-button:hover {
+    color: #3ee6e6; /* Couleur différente au survol */
+}
+
+.hamburger div {
+    width: 30px;
+    height: 3px;
+    background: #f2f5f7;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+.hamburger {
+    display: block;
+    position: absolute;
+    cursor: pointer;
+    right: 5%;
+    top: 50%;
+    transform: translate(-5%, -50%);
+    z-index: 2;
+    transition: all 0.7s ease;
+}
+
+@media screen and (max-width: 4800px) {
+    nav {
+        position: fixed;
+        z-index: 3;
+    }
+
+    .nav-links {
+        position: fixed;
+        background: #131418;
+        height: 100vh;
+        width: 100%;
+        flex-direction: column;
+        clip-path: circle(50px at 90% -20%);
+        -webkit-clip-path: circle(50px at 90% -10%);
+        transition: all 1s ease-out;
+        pointer-events: none;
+    }
+
+    .nav-links.open {
+        clip-path: circle(1000px at 90% -10%);
+        -webkit-clip-path: circle(1000px at 90% -10%);
+        pointer-events: all;
+    }
+
+    .nav-links li {
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+    }
+
+    .nav-links li:nth-child(1) {
+        transition: all 0.5s ease 0.2s;
+    }
+
+    .nav-links li:nth-child(2) {
+        transition: all 0.5s ease 0.4s;
+    }
+
+    .nav-links li:nth-child(3) {
+        transition: all 0.5s ease 0.6s;
+    }
+
+    .nav-links li:nth-child(4) {
+        transition: all 0.5s ease 0.7s;
+    }
+
+    .nav-links li:nth-child(5) {
+        transition: all 0.5s ease 0.8s;
+    }
+
+    .nav-links li:nth-child(6) {
+        transition: all 0.5s ease 0.9s;
+        margin: 0;
+    }
+
+    li.fade {
+        opacity: 1;
+    }
+
+    .nav-links li.fade {
+        opacity: 1;
+        transition: opacity 0.5s ease;
+        padding: 5px 25px 6px 10px;
+        font-size: 18px;
+        cursor: pointer;
+        text-align: center;
+        background-color: #11111115;
+        color: rgb(64, 187, 181);
+        border: none;
+        border-radius: 5px;
+        margin-left: 10px;
+    }
+}

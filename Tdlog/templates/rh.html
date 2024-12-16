@@ -46,7 +46,10 @@
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-light navbar-light">
                 <a href="{{ url_for('rh') }}" class="navbar-brand mx-4 mb-3">
-                    <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>BurnoutGuard</h3>
+                    <h3 class="text-primary">
+                        <img src="static/img/tdloglogo.png" alt="BurnoutGuard" class="logo-icon me-2">
+                        BurnoutGuard
+                    </h3>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
@@ -153,8 +156,8 @@
                             <span class="d-none d-lg-inline-flex">RH</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                            <a href="#" class="dropdown-item">My Profile</a>
-                            <a href="#" class="dropdown-item">Settings</a>
+                            <a href="{{ url_for('profiler') }}" class="dropdown-item">My Profile</a>
+                           
                             <a href="{{ url_for('signin') }}" class="dropdown-item">Log Out</a>
                         </div>
                     </div>
@@ -197,15 +200,26 @@
             </div>
 
             <!-- Graphiques côte à côte -->
-            <div class="col-sm-12 col-xl-6">
+            <div class="col-sm-12 col-xl-8">
                 <div class="bg-light rounded h-100 p-4">
-                    <h6 class="mb-4">Graphique des scores</h6>
+                    <h6 class="mb-4">Etude statistique</h6>
                     <canvas id="line-chart"></canvas>
-                    <p id="average-burnout" class="mt-3"></p>
+                    
+                   
+
+                </div>
+                
+            </div>
+            <div class="col-sm-12 col-xl-4">
+                
+                <div class="bg-light rounded h-50 p-4">
+                    
+                    <i class="fas fa-info-circle"></i> <p id="average-burnout" class="mt-3"></p>
                 </div>
             </div>
-
-           
+          
+            
+                    
         </div>
     </div>
 
@@ -285,10 +299,7 @@
                         <div class="col-12 col-sm-6 text-center text-sm-start">
                             &copy; <a href="#">BurnoutGuard</a>, All Right Reserved. 
                         </div>
-                        <div class="col-12 col-sm-6 text-center text-sm-end">
-                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                            Designed By <a href="https://htmlcodex.com">Ilias maaroufi</a>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -318,24 +329,40 @@
         // Récupérer les données du tableau
         const table = document.getElementById("employee-table");
         const rows = table.querySelectorAll("tbody tr");
-
+    
         // Extraire les IDs et les scores
         const ids = [];
         const scores = [];
-
+        const weekCounts = {
+            "Semaine 1": 0,
+            "Semaine 2": 0,
+            "Semaine 3": 0,
+            "Semaine 4": 0,
+            "Congé": 0
+        };
+    
         rows.forEach(row => {
             const cells = row.querySelectorAll("td, th");
             ids.push(cells[0].innerText); // Colonne ID
             scores.push(parseFloat(cells[3].innerText)); // Colonne Burn-out rate
+    
+            // Calcul des semaines réduites
+            const week = cells[4]?.innerText.trim(); // Colonne Semaine réduite
+            if (weekCounts.hasOwnProperty(`Semaine ${week}`)) {
+                weekCounts[`Semaine ${week}`]++;
+            } else if (week === "Congé") {
+                weekCounts["Congé"]++;
+            }
         });
-
+    
         // Calculer la moyenne des scores
         const averageScore = scores.reduce((acc, score) => acc + score, 0) / scores.length;
-
+    
         // Afficher la moyenne dans l'élément HTML
         const averageElement = document.getElementById("average-burnout");
         averageElement.innerText = `La moyenne du burn-out rate score des employés est de : ${averageScore.toFixed(2)}`;
-
+    
+        
         // Création du graphique
         const ctx = document.getElementById("line-chart").getContext("2d");
         const lineChart = new Chart(ctx, {
@@ -370,8 +397,24 @@
             }
         });
     </script>
+    
+    
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-   
+
+    
+    
+    <script>
+        window.embeddedChatbotConfig = {
+        chatbotId: "eG2cBSqSGeftB1fqA4P2r",
+        domain: "www.chatbase.co"
+        }
+        </script>
+        <script
+        src="https://www.chatbase.co/embed.min.js"
+        chatbotId="eG2cBSqSGeftB1fqA4P2r"
+        domain="www.chatbase.co"
+        defer>
+        </script>
     
  
 

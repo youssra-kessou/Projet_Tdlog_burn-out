@@ -45,9 +45,13 @@
         <!-- Sidebar Start -->
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar bg-light navbar-light">
-                <a href="index1.html" class="navbar-brand mx-4 mb-3">
-                    <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>BurnoutGuard</h3>
+                <a href="{{ url_for('employé') }}" class="navbar-brand mx-4 mb-2">
+                    <h3 class="text-primary">
+                        <img src="static/img/tdloglogo.png" alt="BurnoutGuard" class="logo-icon me-2">
+                        BurnoutGuard
+                    </h3>
                 </a>
+                
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
                         <img class="rounded-circle" src="static/img/user.jpg" alt="" style="width: 40px; height: 40px;">
@@ -153,7 +157,7 @@
                             <span class="d-none d-lg-inline-flex">Employé</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                            <a href="#" class="dropdown-item">My Profile</a>
+                            <a href="{{ url_for('profile') }}" class="dropdown-item">My Profile</a>
                             
                             <a href="{{ url_for('signin') }}" class="dropdown-item">Log Out</a>
                         </div>
@@ -474,6 +478,18 @@
             flashContainer.classList.add('flash-hidden');
         }
     }
+    </script>
+    <script>
+        window.embeddedChatbotConfig = {
+        chatbotId: "eG2cBSqSGeftB1fqA4P2r",
+        domain: "www.chatbase.co"
+        }
+        </script>
+        <script
+        src="https://www.chatbase.co/embed.min.js"
+        chatbotId="eG2cBSqSGeftB1fqA4P2r"
+        domain="www.chatbase.co"
+        defer>
     </script>
         
 </body>

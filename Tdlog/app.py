@@ -8,12 +8,12 @@ app = Flask(__name__)
 app.secret_key = "secret-key"  # Nécessaire pour afficher les messages flash
 
 # Chemins vers les fichiers du modèle et du scaler
-model_path = "Tdlog/model1.pkl"
-scaler_path = "Tdlog/scaler1.pkl"
+model_path = "Projet_Tdlog_burn-out/Tdlog/model1.pkl"
+scaler_path = "Projet_Tdlog_burn-out/Tdlog/scaler1.pkl"
 data_file_path = "employees_data.json"
 
 # Charger le modèle
-with open(model_path, "rb") as model_file:
+with  open(model_path, "rb") as model_file:
     model = pickle.load(model_file)
 
 # Charger le scaler
@@ -119,6 +119,15 @@ def employé():
 @app.route("/rh")
 def rh():
     return render_template("rh.html", employees=employees_data)
+
+@app.route("/profile")
+def profile():
+    return render_template("profile.html")
+
+
+@app.route("/profiler")
+def profiler():
+    return render_template("profiler.html")
 
 
 if __name__ == "__main__":
