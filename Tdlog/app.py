@@ -10,7 +10,7 @@ app.secret_key = "secret-key"  # Nécessaire pour afficher les messages flash
 # Chemins vers les fichiers du modèle et du scaler
 model_path = "Projet_Tdlog_burn-out/Tdlog/model1.pkl"
 scaler_path = "Projet_Tdlog_burn-out/Tdlog/scaler1.pkl"
-data_file_path = "employees_data.json"
+data_file_path = "Projet_Tdlog_burn-out/employees_data.json"
 
 # Charger le modèle
 with  open(model_path, "rb") as model_file:
